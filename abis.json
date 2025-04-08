@@ -2707,5 +2707,313 @@
         "type": "receive"
       }
     ]
+  },
+  "0xF8CaD55c9A7A648593133883550B906fcC765915": {
+    "name": "TokenVestingManagerFactory",
+    "abi": [
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "contract TokenVestingManager",
+            "name": "tokenVestingManager",
+            "type": "address"
+          }
+        ],
+        "name": "TokenVestingManagerCreated",
+        "type": "event"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "tokenAddress",
+            "type": "address"
+          }
+        ],
+        "name": "newTokenVestingManager",
+        "outputs": [
+          {
+            "internalType": "contract TokenVestingManager",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ]
+  },
+  "0x0334Ea9B5bB8788F765aE7Ad038BE3F11f938733": {
+    "name": "MilestoneManagerFactory",
+    "abi": [
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "contract MilestoneManager",
+            "name": "milestone",
+            "type": "address"
+          }
+        ],
+        "name": "MilestoneManagerCreated",
+        "type": "event"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "tokenAddress",
+            "type": "address"
+          }
+        ],
+        "name": "newMilestoneManager",
+        "outputs": [
+          {
+            "internalType": "contract MilestoneManager",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ]
+  },
+  "0xFB04C12Ee329F2a02aA592b9631B4C7266645999": {
+    "name": "VestedMilestoneManagerFactory",
+    "abi": [
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "contract VestedMilestoneManager",
+            "name": "vestedMilestone",
+            "type": "address"
+          }
+        ],
+        "name": "VestedMilestoneManagerCreated",
+        "type": "event"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "tokenAddress",
+            "type": "address"
+          }
+        ],
+        "name": "newVestedMilestoneManager",
+        "outputs": [
+          {
+            "internalType": "contract VestedMilestoneManager",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ]
+  },
+  "0xf589F288EC9878c4B6Cc3eEa6e8772ac0E2e0d1f": {
+    "name": "MerkleDistributorWithDeadlineFactory",
+    "abi": [
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "contract MerkleDistributorWithDeadline",
+            "name": "merkleDistributor",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "address",
+            "name": "tokenAddress",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "bytes32",
+            "name": "merkleRoot",
+            "type": "bytes32"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "endTime",
+            "type": "uint256"
+          }
+        ],
+        "name": "MerkleDistributorCreated",
+        "type": "event"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "tokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "merkleRoot",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "endTime",
+            "type": "uint256"
+          }
+        ],
+        "name": "newMerkleDistributor",
+        "outputs": [
+          {
+            "internalType": "contract MerkleDistributorWithDeadline",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ]
+  },
+  "0x35D50cd66810a1A90A9f539B1adE7bB555d71986": {
+    "name": "Disperse",
+    "abi": [
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "name": "recipients",
+            "type": "address[]"
+          },
+          {
+            "name": "values",
+            "type": "uint256[]"
+          }
+        ],
+        "name": "disperseTokenSimple",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "name": "recipients",
+            "type": "address[]"
+          },
+          {
+            "name": "values",
+            "type": "uint256[]"
+          }
+        ],
+        "name": "disperseToken",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "recipients",
+            "type": "address[]"
+          },
+          {
+            "name": "values",
+            "type": "uint256[]"
+          }
+        ],
+        "name": "disperseEther",
+        "outputs": [],
+        "payable": true,
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "_tokenAddr",
+            "type": "address"
+          }
+        ],
+        "name": "withdrawERC20",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "name": "ERC20Withdrawn",
+        "type": "event"
+      }
+    ]
   }
 }
