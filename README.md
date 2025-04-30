@@ -10,7 +10,7 @@ Repository containing verified contract ABIs for MegaExplorer.
 ## To add new verified contracts:
 1. Create an entry in `abis.json` with:
 ```json
-"CONTRACT_ADDRESS": {
+"CONTRACT_ADDRESS": {0xDa672845f8f1B160030180d3977506aDf6ae3859
   "name": "ExactContractName",
   "abi": [/* Full unmodified ABI from compilation */]
 }
