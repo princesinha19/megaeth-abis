@@ -1,264 +1,158 @@
 {
-    "0x8D71ACCFc6A021d0F30592A9fE547b5a871C34d0 ": {
-        "name": "SecondSwap_Marketplace",
+    "0x20BB7e87da7C1ea1442B52F7bC42083C1c6c43a1 ": {
+        "name": "SecondSwap_MarketplaceSetting",
         "abi": [
             {
               "inputs": [
                 {
                   "internalType": "address",
-                  "name": "target",
-                  "type": "address"
-                }
-              ],
-              "name": "AddressEmptyCode",
-              "type": "error"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "account",
-                  "type": "address"
-                }
-              ],
-              "name": "AddressInsufficientBalance",
-              "type": "error"
-            },
-            {
-              "inputs": [],
-              "name": "FailedInnerCall",
-              "type": "error"
-            },
-            {
-              "inputs": [],
-              "name": "InvalidInitialization",
-              "type": "error"
-            },
-            {
-              "inputs": [],
-              "name": "NotInitializing",
-              "type": "error"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "token",
-                  "type": "address"
-                }
-              ],
-              "name": "SafeERC20FailedOperation",
-              "type": "error"
-            },
-            {
-              "anonymous": false,
-              "inputs": [
-                {
-                  "indexed": true,
-                  "internalType": "address",
-                  "name": "token",
-                  "type": "address"
-                }
-              ],
-              "name": "CoinAdded",
-              "type": "event"
-            },
-            {
-              "anonymous": false,
-              "inputs": [
-                {
-                  "indexed": true,
-                  "internalType": "address",
-                  "name": "vestingPlan",
+                  "name": "_feeCollector",
                   "type": "address"
                 },
                 {
-                  "indexed": true,
-                  "internalType": "uint256",
-                  "name": "listingId",
-                  "type": "uint256"
-                },
-                {
-                  "indexed": false,
-                  "internalType": "uint256",
-                  "name": "penaltyFee",
-                  "type": "uint256"
-                },
-                {
-                  "indexed": false,
                   "internalType": "address",
-                  "name": "seller",
+                  "name": "_s2Admin",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "_whitelistDeployer",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "_vestingManager",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "_usdt",
                   "type": "address"
                 }
               ],
-              "name": "Delisted",
-              "type": "event"
+              "stateMutability": "nonpayable",
+              "type": "constructor"
             },
             {
               "anonymous": false,
               "inputs": [
                 {
                   "indexed": false,
-                  "internalType": "uint64",
-                  "name": "version",
-                  "type": "uint64"
+                  "internalType": "address",
+                  "name": "newAdmin",
+                  "type": "address"
                 }
               ],
-              "name": "Initialized",
+              "name": "AdminUpdated",
               "type": "event"
             },
             {
               "anonymous": false,
               "inputs": [
-                {
-                  "indexed": true,
-                  "internalType": "address",
-                  "name": "vestingPlan",
-                  "type": "address"
-                },
-                {
-                  "indexed": true,
-                  "internalType": "uint256",
-                  "name": "listingId",
-                  "type": "uint256"
-                }
-              ],
-              "name": "Listed",
-              "type": "event"
-            },
-            {
-              "anonymous": false,
-              "inputs": [
-                {
-                  "indexed": true,
-                  "internalType": "address",
-                  "name": "vestingPlan",
-                  "type": "address"
-                },
-                {
-                  "indexed": true,
-                  "internalType": "uint256",
-                  "name": "listingId",
-                  "type": "uint256"
-                }
-              ],
-              "name": "LotFrozen",
-              "type": "event"
-            },
-            {
-              "anonymous": false,
-              "inputs": [
-                {
-                  "indexed": true,
-                  "internalType": "address",
-                  "name": "vestingPlan",
-                  "type": "address"
-                },
-                {
-                  "indexed": true,
-                  "internalType": "uint256",
-                  "name": "listingId",
-                  "type": "uint256"
-                }
-              ],
-              "name": "LotUnfrozen",
-              "type": "event"
-            },
-            {
-              "anonymous": false,
-              "inputs": [
-                {
-                  "indexed": true,
-                  "internalType": "address",
-                  "name": "vestingPlan",
-                  "type": "address"
-                },
-                {
-                  "indexed": true,
-                  "internalType": "uint256",
-                  "name": "listingId",
-                  "type": "uint256"
-                },
-                {
-                  "indexed": false,
-                  "internalType": "address",
-                  "name": "buyer",
-                  "type": "address"
-                },
-                {
-                  "indexed": false,
-                  "internalType": "uint256",
-                  "name": "amount",
-                  "type": "uint256"
-                },
-                {
-                  "indexed": false,
-                  "internalType": "address",
-                  "name": "referral",
-                  "type": "address"
-                },
                 {
                   "indexed": false,
                   "internalType": "uint256",
                   "name": "buyerFee",
                   "type": "uint256"
-                },
-                {
-                  "indexed": false,
-                  "internalType": "uint256",
-                  "name": "sellerFee",
-                  "type": "uint256"
-                },
-                {
-                  "indexed": false,
-                  "internalType": "uint256",
-                  "name": "referralReward",
-                  "type": "uint256"
                 }
               ],
-              "name": "Purchased",
+              "name": "DefaultBuyerFeeUpdated",
               "type": "event"
             },
             {
               "anonymous": false,
               "inputs": [
                 {
-                  "indexed": true,
-                  "internalType": "address",
-                  "name": "vestingPlan",
-                  "type": "address"
-                },
-                {
-                  "indexed": true,
-                  "internalType": "uint256",
-                  "name": "listingId",
-                  "type": "uint256"
-                },
-                {
-                  "indexed": false,
-                  "internalType": "address",
-                  "name": "whitelistAddress",
-                  "type": "address"
-                },
-                {
-                  "indexed": false,
-                  "internalType": "address",
-                  "name": "seller",
-                  "type": "address"
-                },
-                {
                   "indexed": false,
                   "internalType": "uint256",
-                  "name": "maxWhitelist",
+                  "name": "penaltyFee",
                   "type": "uint256"
                 }
               ],
-              "name": "WhitelistCreated",
+              "name": "DefaultPenaltyFeeUpdated",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "sellerFee",
+                  "type": "uint256"
+                }
+              ],
+              "name": "DefaultSellerFeeUpdated",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "newDev",
+                  "type": "address"
+                }
+              ],
+              "name": "DevUpdated",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "newCollector",
+                  "type": "address"
+                }
+              ],
+              "name": "FeeCollectorUpdated",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "bool",
+                  "name": "status",
+                  "type": "bool"
+                }
+              ],
+              "name": "MarketplaceStatusUpdated",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "penaltyTime",
+                  "type": "uint256"
+                }
+              ],
+              "name": "PenaltyDurationUpdated",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "_percentage",
+                  "type": "uint256"
+                }
+              ],
+              "name": "ReferralUpdated",
               "type": "event"
             },
             {
               "inputs": [],
-              "name": "BASE",
+              "name": "buyerFee",
               "outputs": [
                 {
                   "internalType": "uint256",
@@ -270,32 +164,45 @@
               "type": "function"
             },
             {
-              "inputs": [
+              "inputs": [],
+              "name": "feeCollector",
+              "outputs": [
                 {
                   "internalType": "address",
-                  "name": "_token",
+                  "name": "",
                   "type": "address"
                 }
               ],
-              "name": "addCoin",
-              "outputs": [],
-              "stateMutability": "nonpayable",
+              "stateMutability": "view",
               "type": "function"
             },
             {
               "inputs": [
                 {
                   "internalType": "address",
-                  "name": "target",
+                  "name": "_vesting",
                   "type": "address"
-                },
-                {
-                  "internalType": "string",
-                  "name": "functionSignature",
-                  "type": "string"
                 }
               ],
-              "name": "doesFunctionExist",
+              "name": "getVestingFees",
+              "outputs": [
+                {
+                  "internalType": "int256",
+                  "name": "VPbuyerFee",
+                  "type": "int256"
+                },
+                {
+                  "internalType": "int256",
+                  "name": "VPsellerFee",
+                  "type": "int256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "isMarketplaceFreeze",
               "outputs": [
                 {
                   "internalType": "bool",
@@ -307,196 +214,51 @@
               "type": "function"
             },
             {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "_vestingPlan",
-                  "type": "address"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "_listingId",
-                  "type": "uint256"
-                }
-              ],
-              "name": "freezeLot",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "_token",
-                  "type": "address"
-                },
-                {
-                  "internalType": "address",
-                  "name": "_marketplaceSetting",
-                  "type": "address"
-                }
-              ],
-              "name": "initialize",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "",
-                  "type": "address"
-                }
-              ],
-              "name": "isTokenSupport",
+              "inputs": [],
+              "name": "minListingDuration",
               "outputs": [
                 {
-                  "internalType": "bool",
+                  "internalType": "uint256",
                   "name": "",
-                  "type": "bool"
+                  "type": "uint256"
                 }
               ],
               "stateMutability": "view",
               "type": "function"
             },
             {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "_vestingPlan",
-                  "type": "address"
-                },
+              "inputs": [],
+              "name": "penaltyFee",
+              "outputs": [
                 {
                   "internalType": "uint256",
-                  "name": "_amount",
+                  "name": "",
                   "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "_price",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "_discountPct",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "enum SecondSwap_Marketplace.ListingType",
-                  "name": "_listingType",
-                  "type": "uint8"
-                },
-                {
-                  "internalType": "enum SecondSwap_Marketplace.DiscountType",
-                  "name": "_discountType",
-                  "type": "uint8"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "_maxWhitelist",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "address",
-                  "name": "_currency",
-                  "type": "address"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "_minPurchaseAmt",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "bool",
-                  "name": "_isPrivate",
-                  "type": "bool"
                 }
               ],
-              "name": "listVesting",
-              "outputs": [],
-              "stateMutability": "nonpayable",
+              "stateMutability": "view",
               "type": "function"
             },
             {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "",
-                  "type": "address"
-                },
+              "inputs": [],
+              "name": "referralFee",
+              "outputs": [
                 {
                   "internalType": "uint256",
                   "name": "",
                   "type": "uint256"
                 }
               ],
-              "name": "listings",
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "referralFeeCollector",
               "outputs": [
                 {
                   "internalType": "address",
-                  "name": "seller",
-                  "type": "address"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "total",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "balance",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "pricePerUnit",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "enum SecondSwap_Marketplace.ListingType",
-                  "name": "listingType",
-                  "type": "uint8"
-                },
-                {
-                  "internalType": "enum SecondSwap_Marketplace.DiscountType",
-                  "name": "discountType",
-                  "type": "uint8"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "discountPct",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "listTime",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "address",
-                  "name": "whitelist",
-                  "type": "address"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "minPurchaseAmt",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "enum SecondSwap_Marketplace.Status",
-                  "name": "status",
-                  "type": "uint8"
-                },
-                {
-                  "internalType": "address",
-                  "name": "currency",
-                  "type": "address"
-                },
-                {
-                  "internalType": "address",
-                  "name": "vestingPlan",
+                  "name": "",
                   "type": "address"
                 }
               ],
@@ -505,7 +267,7 @@
             },
             {
               "inputs": [],
-              "name": "marketplaceSetting",
+              "name": "s2Admin",
               "outputs": [
                 {
                   "internalType": "address",
@@ -517,14 +279,8 @@
               "type": "function"
             },
             {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "",
-                  "type": "address"
-                }
-              ],
-              "name": "nextListingId",
+              "inputs": [],
+              "name": "sellerFee",
               "outputs": [
                 {
                   "internalType": "uint256",
@@ -537,41 +293,13 @@
             },
             {
               "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "_marketplaceSetting",
-                  "type": "address"
-                }
-              ],
-              "name": "setMarketplaceSettingAddress",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "_vestingPlan",
-                  "type": "address"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "_listingId",
-                  "type": "uint256"
-                },
                 {
                   "internalType": "uint256",
                   "name": "_amount",
                   "type": "uint256"
-                },
-                {
-                  "internalType": "address",
-                  "name": "_referral",
-                  "type": "address"
                 }
               ],
-              "name": "spotPurchase",
+              "name": "setBuyerFee",
               "outputs": [],
               "stateMutability": "nonpayable",
               "type": "function"
@@ -580,16 +308,11 @@
               "inputs": [
                 {
                   "internalType": "address",
-                  "name": "_vestingPlan",
+                  "name": "_address",
                   "type": "address"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "_listingId",
-                  "type": "uint256"
                 }
               ],
-              "name": "unfreezeLot",
+              "name": "setFeeAccount",
               "outputs": [],
               "stateMutability": "nonpayable",
               "type": "function"
@@ -598,31 +321,143 @@
               "inputs": [
                 {
                   "internalType": "address",
-                  "name": "_vestingPlan",
+                  "name": "_vestingManager",
                   "type": "address"
-                },
+                }
+              ],
+              "name": "setManager",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "bool",
+                  "name": "_status",
+                  "type": "bool"
+                }
+              ],
+              "name": "setMarketplaceStatus",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
                 {
                   "internalType": "uint256",
-                  "name": "_listingId",
+                  "name": "_seconds",
                   "type": "uint256"
                 }
               ],
-              "name": "unlistVesting",
+              "name": "setMinListingDuration",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "_amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "setPenaltyFee",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "_percentage",
+                  "type": "uint256"
+                }
+              ],
+              "name": "setReferral",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_user",
+                  "type": "address"
+                }
+              ],
+              "name": "setS2Admin",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "_amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "setSellerFee",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_whitelistDeployer",
+                  "type": "address"
+                }
+              ],
+              "name": "setWhitelistDeployer",
               "outputs": [],
               "stateMutability": "nonpayable",
               "type": "function"
             },
             {
               "inputs": [],
-              "name": "version",
+              "name": "usdt",
               "outputs": [
                 {
-                  "internalType": "string",
+                  "internalType": "contract IERC20",
                   "name": "",
-                  "type": "string"
+                  "type": "address"
                 }
               ],
-              "stateMutability": "pure",
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "vestingManager",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "whitelistDeployer",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
               "type": "function"
             }
           ]
