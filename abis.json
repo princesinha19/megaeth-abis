@@ -1,15 +1,32 @@
 {
-    "0xc1BA5aC961bcf2736Db4a87ABdEb43619be149A4": {
-        "name": "SecondSwap_VestingDeployer",
+    "0x8D71ACCFc6A021d0F30592A9fE547b5a871C34d0 ": {
+        "name": "SecondSwap_Marketplace",
         "abi": [
             {
-              "inputs": [],
-              "name": "EndTimePast",
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "target",
+                  "type": "address"
+                }
+              ],
+              "name": "AddressEmptyCode",
+              "type": "error"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "account",
+                  "type": "address"
+                }
+              ],
+              "name": "AddressInsufficientBalance",
               "type": "error"
             },
             {
               "inputs": [],
-              "name": "ExistingTokenOwner",
+              "name": "FailedInnerCall",
               "type": "error"
             },
             {
@@ -19,47 +36,18 @@
             },
             {
               "inputs": [],
-              "name": "InvalidTimeRange",
-              "type": "error"
-            },
-            {
-              "inputs": [],
-              "name": "ManagerNotSet",
-              "type": "error"
-            },
-            {
-              "inputs": [],
               "name": "NotInitializing",
               "type": "error"
             },
             {
-              "inputs": [],
-              "name": "NotTokenOwner",
-              "type": "error"
-            },
-            {
-              "inputs": [],
-              "name": "SameAddressAssignment",
-              "type": "error"
-            },
-            {
-              "inputs": [],
-              "name": "StepDurationZero",
-              "type": "error"
-            },
-            {
-              "inputs": [],
-              "name": "StepsZero",
-              "type": "error"
-            },
-            {
-              "inputs": [],
-              "name": "TokenAddressZero",
-              "type": "error"
-            },
-            {
-              "inputs": [],
-              "name": "Unauthorized",
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                }
+              ],
+              "name": "SafeERC20FailedOperation",
               "type": "error"
             },
             {
@@ -67,24 +55,43 @@
               "inputs": [
                 {
                   "indexed": true,
-                  "internalType": "address[]",
-                  "name": "beneficiaries",
-                  "type": "address[]"
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                }
+              ],
+              "name": "CoinAdded",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "vestingPlan",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "uint256",
+                  "name": "listingId",
+                  "type": "uint256"
                 },
                 {
                   "indexed": false,
-                  "internalType": "uint256[]",
-                  "name": "totalAmounts",
-                  "type": "uint256[]"
+                  "internalType": "uint256",
+                  "name": "penaltyFee",
+                  "type": "uint256"
                 },
                 {
                   "indexed": false,
                   "internalType": "address",
-                  "name": "stepVesting",
+                  "name": "seller",
                   "type": "address"
                 }
               ],
-              "name": "BatchVestingsCreated",
+              "name": "Delisted",
               "type": "event"
             },
             {
@@ -106,23 +113,17 @@
                 {
                   "indexed": true,
                   "internalType": "address",
-                  "name": "beneficiary",
+                  "name": "vestingPlan",
                   "type": "address"
                 },
                 {
-                  "indexed": false,
-                  "internalType": "address",
-                  "name": "stepVesting",
-                  "type": "address"
-                },
-                {
-                  "indexed": false,
+                  "indexed": true,
                   "internalType": "uint256",
-                  "name": "amount",
+                  "name": "listingId",
                   "type": "uint256"
                 }
               ],
-              "name": "VestingClaimed",
+              "name": "Listed",
               "type": "event"
             },
             {
@@ -131,63 +132,57 @@
                 {
                   "indexed": true,
                   "internalType": "address",
-                  "name": "beneficiary",
+                  "name": "vestingPlan",
                   "type": "address"
                 },
                 {
-                  "indexed": false,
+                  "indexed": true,
                   "internalType": "uint256",
-                  "name": "totalAmount",
+                  "name": "listingId",
+                  "type": "uint256"
+                }
+              ],
+              "name": "LotFrozen",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "vestingPlan",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "uint256",
+                  "name": "listingId",
+                  "type": "uint256"
+                }
+              ],
+              "name": "LotUnfrozen",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "vestingPlan",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "uint256",
+                  "name": "listingId",
                   "type": "uint256"
                 },
                 {
                   "indexed": false,
                   "internalType": "address",
-                  "name": "stepVesting",
-                  "type": "address"
-                }
-              ],
-              "name": "VestingCreated",
-              "type": "event"
-            },
-            {
-              "anonymous": false,
-              "inputs": [
-                {
-                  "indexed": true,
-                  "internalType": "address",
-                  "name": "token",
-                  "type": "address"
-                },
-                {
-                  "indexed": false,
-                  "internalType": "address",
-                  "name": "vesting",
-                  "type": "address"
-                },
-                {
-                  "indexed": false,
-                  "internalType": "string",
-                  "name": "vestingId",
-                  "type": "string"
-                }
-              ],
-              "name": "VestingDeployed",
-              "type": "event"
-            },
-            {
-              "anonymous": false,
-              "inputs": [
-                {
-                  "indexed": true,
-                  "internalType": "address",
-                  "name": "grantor",
-                  "type": "address"
-                },
-                {
-                  "indexed": true,
-                  "internalType": "address",
-                  "name": "beneficiary",
+                  "name": "buyer",
                   "type": "address"
                 },
                 {
@@ -199,33 +194,76 @@
                 {
                   "indexed": false,
                   "internalType": "address",
-                  "name": "stepVesting",
+                  "name": "referral",
                   "type": "address"
                 },
                 {
                   "indexed": false,
-                  "internalType": "string",
-                  "name": "transactionId",
-                  "type": "string"
+                  "internalType": "uint256",
+                  "name": "buyerFee",
+                  "type": "uint256"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "sellerFee",
+                  "type": "uint256"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "referralReward",
+                  "type": "uint256"
                 }
               ],
-              "name": "VestingTransferred",
+              "name": "Purchased",
               "type": "event"
             },
             {
+              "anonymous": false,
               "inputs": [
                 {
+                  "indexed": true,
                   "internalType": "address",
-                  "name": "",
+                  "name": "vestingPlan",
                   "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "uint256",
+                  "name": "listingId",
+                  "type": "uint256"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "whitelistAddress",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "seller",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "maxWhitelist",
+                  "type": "uint256"
                 }
               ],
-              "name": "_tokenOwner",
+              "name": "WhitelistCreated",
+              "type": "event"
+            },
+            {
+              "inputs": [],
+              "name": "BASE",
               "outputs": [
                 {
-                  "internalType": "address",
+                  "internalType": "uint256",
                   "name": "",
-                  "type": "address"
+                  "type": "uint256"
                 }
               ],
               "stateMutability": "view",
@@ -235,44 +273,11 @@
               "inputs": [
                 {
                   "internalType": "address",
-                  "name": "_beneficiary",
-                  "type": "address"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "_totalAmount",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "address",
-                  "name": "_stepVesting",
+                  "name": "_token",
                   "type": "address"
                 }
               ],
-              "name": "createVesting",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address[]",
-                  "name": "_beneficiaries",
-                  "type": "address[]"
-                },
-                {
-                  "internalType": "uint256[]",
-                  "name": "_totalAmounts",
-                  "type": "uint256[]"
-                },
-                {
-                  "internalType": "address",
-                  "name": "_stepVesting",
-                  "type": "address"
-                }
-              ],
-              "name": "createVestings",
+              "name": "addCoin",
               "outputs": [],
               "stateMutability": "nonpayable",
               "type": "function"
@@ -281,31 +286,40 @@
               "inputs": [
                 {
                   "internalType": "address",
-                  "name": "tokenAddress",
+                  "name": "target",
                   "type": "address"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "startTime",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "endTime",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "steps",
-                  "type": "uint256"
                 },
                 {
                   "internalType": "string",
-                  "name": "vestingId",
+                  "name": "functionSignature",
                   "type": "string"
                 }
               ],
-              "name": "deployVesting",
+              "name": "doesFunctionExist",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_vestingPlan",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_listingId",
+                  "type": "uint256"
+                }
+              ],
+              "name": "freezeLot",
               "outputs": [],
               "stateMutability": "nonpayable",
               "type": "function"
@@ -314,12 +328,12 @@
               "inputs": [
                 {
                   "internalType": "address",
-                  "name": "_s2Admin",
+                  "name": "_token",
                   "type": "address"
                 },
                 {
                   "internalType": "address",
-                  "name": "_manager",
+                  "name": "_marketplaceSetting",
                   "type": "address"
                 }
               ],
@@ -329,26 +343,19 @@
               "type": "function"
             },
             {
-              "inputs": [],
-              "name": "manager",
-              "outputs": [
+              "inputs": [
                 {
                   "internalType": "address",
                   "name": "",
                   "type": "address"
                 }
               ],
-              "stateMutability": "view",
-              "type": "function"
-            },
-            {
-              "inputs": [],
-              "name": "s2Admin",
+              "name": "isTokenSupport",
               "outputs": [
                 {
-                  "internalType": "address",
+                  "internalType": "bool",
                   "name": "",
-                  "type": "address"
+                  "type": "bool"
                 }
               ],
               "stateMutability": "view",
@@ -358,56 +365,7 @@
               "inputs": [
                 {
                   "internalType": "address",
-                  "name": "_admin",
-                  "type": "address"
-                }
-              ],
-              "name": "setAdmin",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "_manager",
-                  "type": "address"
-                }
-              ],
-              "name": "setManager",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "token",
-                  "type": "address"
-                },
-                {
-                  "internalType": "address",
-                  "name": "_owner",
-                  "type": "address"
-                }
-              ],
-              "name": "setTokenOwner",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "_grantor",
-                  "type": "address"
-                },
-                {
-                  "internalType": "address",
-                  "name": "_beneficiary",
+                  "name": "_vestingPlan",
                   "type": "address"
                 },
                 {
@@ -416,17 +374,240 @@
                   "type": "uint256"
                 },
                 {
+                  "internalType": "uint256",
+                  "name": "_price",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_discountPct",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "enum SecondSwap_Marketplace.ListingType",
+                  "name": "_listingType",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "enum SecondSwap_Marketplace.DiscountType",
+                  "name": "_discountType",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_maxWhitelist",
+                  "type": "uint256"
+                },
+                {
                   "internalType": "address",
-                  "name": "_stepVesting",
+                  "name": "_currency",
                   "type": "address"
                 },
                 {
-                  "internalType": "string",
-                  "name": "_transactionId",
-                  "type": "string"
+                  "internalType": "uint256",
+                  "name": "_minPurchaseAmt",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "_isPrivate",
+                  "type": "bool"
                 }
               ],
-              "name": "transferVesting",
+              "name": "listVesting",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "name": "listings",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "seller",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "total",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "balance",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "pricePerUnit",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "enum SecondSwap_Marketplace.ListingType",
+                  "name": "listingType",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "enum SecondSwap_Marketplace.DiscountType",
+                  "name": "discountType",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "discountPct",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "listTime",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "whitelist",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "minPurchaseAmt",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "enum SecondSwap_Marketplace.Status",
+                  "name": "status",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "address",
+                  "name": "currency",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "vestingPlan",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "marketplaceSetting",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "name": "nextListingId",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_marketplaceSetting",
+                  "type": "address"
+                }
+              ],
+              "name": "setMarketplaceSettingAddress",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_vestingPlan",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_listingId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_amount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "_referral",
+                  "type": "address"
+                }
+              ],
+              "name": "spotPurchase",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_vestingPlan",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_listingId",
+                  "type": "uint256"
+                }
+              ],
+              "name": "unfreezeLot",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_vestingPlan",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_listingId",
+                  "type": "uint256"
+                }
+              ],
+              "name": "unlistVesting",
               "outputs": [],
               "stateMutability": "nonpayable",
               "type": "function"
