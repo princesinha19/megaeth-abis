@@ -1,93 +1,103 @@
 {
-    "0x90D7aE814b1fFF9488CbD0335D1417ba34FA4908": {
-        "name": "TransparentUpgradeableProxy",
+    "0xc1BA5aC961bcf2736Db4a87ABdEb43619be149A4": {
+        "name": "SecondSwap_VestingDeployer",
         "abi": [
             {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "_logic",
-                  "type": "address"
-                },
-                {
-                  "internalType": "address",
-                  "name": "initialOwner",
-                  "type": "address"
-                },
-                {
-                  "internalType": "bytes",
-                  "name": "_data",
-                  "type": "bytes"
-                }
-              ],
-              "stateMutability": "payable",
-              "type": "constructor"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "target",
-                  "type": "address"
-                }
-              ],
-              "name": "AddressEmptyCode",
-              "type": "error"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "admin",
-                  "type": "address"
-                }
-              ],
-              "name": "ERC1967InvalidAdmin",
-              "type": "error"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "implementation",
-                  "type": "address"
-                }
-              ],
-              "name": "ERC1967InvalidImplementation",
+              "inputs": [],
+              "name": "EndTimePast",
               "type": "error"
             },
             {
               "inputs": [],
-              "name": "ERC1967NonPayable",
+              "name": "ExistingTokenOwner",
               "type": "error"
             },
             {
               "inputs": [],
-              "name": "FailedInnerCall",
+              "name": "InvalidInitialization",
               "type": "error"
             },
             {
               "inputs": [],
-              "name": "ProxyDeniedAdminAccess",
+              "name": "InvalidTimeRange",
+              "type": "error"
+            },
+            {
+              "inputs": [],
+              "name": "ManagerNotSet",
+              "type": "error"
+            },
+            {
+              "inputs": [],
+              "name": "NotInitializing",
+              "type": "error"
+            },
+            {
+              "inputs": [],
+              "name": "NotTokenOwner",
+              "type": "error"
+            },
+            {
+              "inputs": [],
+              "name": "SameAddressAssignment",
+              "type": "error"
+            },
+            {
+              "inputs": [],
+              "name": "StepDurationZero",
+              "type": "error"
+            },
+            {
+              "inputs": [],
+              "name": "StepsZero",
+              "type": "error"
+            },
+            {
+              "inputs": [],
+              "name": "TokenAddressZero",
+              "type": "error"
+            },
+            {
+              "inputs": [],
+              "name": "Unauthorized",
               "type": "error"
             },
             {
               "anonymous": false,
               "inputs": [
                 {
+                  "indexed": true,
+                  "internalType": "address[]",
+                  "name": "beneficiaries",
+                  "type": "address[]"
+                },
+                {
                   "indexed": false,
-                  "internalType": "address",
-                  "name": "previousAdmin",
-                  "type": "address"
+                  "internalType": "uint256[]",
+                  "name": "totalAmounts",
+                  "type": "uint256[]"
                 },
                 {
                   "indexed": false,
                   "internalType": "address",
-                  "name": "newAdmin",
+                  "name": "stepVesting",
                   "type": "address"
                 }
               ],
-              "name": "AdminChanged",
+              "name": "BatchVestingsCreated",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "uint64",
+                  "name": "version",
+                  "type": "uint64"
+                }
+              ],
+              "name": "Initialized",
               "type": "event"
             },
             {
@@ -96,16 +106,343 @@
                 {
                   "indexed": true,
                   "internalType": "address",
-                  "name": "implementation",
+                  "name": "beneficiary",
                   "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "stepVesting",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
                 }
               ],
-              "name": "Upgraded",
+              "name": "VestingClaimed",
               "type": "event"
             },
             {
-              "stateMutability": "payable",
-              "type": "fallback"
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "beneficiary",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "totalAmount",
+                  "type": "uint256"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "stepVesting",
+                  "type": "address"
+                }
+              ],
+              "name": "VestingCreated",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "vesting",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "string",
+                  "name": "vestingId",
+                  "type": "string"
+                }
+              ],
+              "name": "VestingDeployed",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "grantor",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "beneficiary",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "stepVesting",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "string",
+                  "name": "transactionId",
+                  "type": "string"
+                }
+              ],
+              "name": "VestingTransferred",
+              "type": "event"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "name": "_tokenOwner",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_beneficiary",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_totalAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "_stepVesting",
+                  "type": "address"
+                }
+              ],
+              "name": "createVesting",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address[]",
+                  "name": "_beneficiaries",
+                  "type": "address[]"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "_totalAmounts",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "address",
+                  "name": "_stepVesting",
+                  "type": "address"
+                }
+              ],
+              "name": "createVestings",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "tokenAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "startTime",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "endTime",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "steps",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "vestingId",
+                  "type": "string"
+                }
+              ],
+              "name": "deployVesting",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_s2Admin",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "_manager",
+                  "type": "address"
+                }
+              ],
+              "name": "initialize",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "manager",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "s2Admin",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_admin",
+                  "type": "address"
+                }
+              ],
+              "name": "setAdmin",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_manager",
+                  "type": "address"
+                }
+              ],
+              "name": "setManager",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "_owner",
+                  "type": "address"
+                }
+              ],
+              "name": "setTokenOwner",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_grantor",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "_beneficiary",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_amount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "_stepVesting",
+                  "type": "address"
+                },
+                {
+                  "internalType": "string",
+                  "name": "_transactionId",
+                  "type": "string"
+                }
+              ],
+              "name": "transferVesting",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "version",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
             }
           ]
     }
