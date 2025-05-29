@@ -1,255 +1,75 @@
 {
-    "0x2B9594d58DC392677a9D398AcFd229e4239aB81F": {
-        "name": "SecondSwap_VestingManager",
+    "0x62c0Bf561469FC238Aa979169C80b0Cd25c592f2": {
+        "name": "ProxyAdmin",
         "abi": [
             {
-              "inputs": [],
-              "name": "InvalidInitialization",
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "initialOwner",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "constructor"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                }
+              ],
+              "name": "OwnableInvalidOwner",
               "type": "error"
             },
             {
-              "inputs": [],
-              "name": "NotInitializing",
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "account",
+                  "type": "address"
+                }
+              ],
+              "name": "OwnableUnauthorizedAccount",
               "type": "error"
             },
             {
               "anonymous": false,
               "inputs": [
                 {
-                  "indexed": false,
+                  "indexed": true,
                   "internalType": "address",
-                  "name": "vesting",
+                  "name": "previousOwner",
                   "type": "address"
                 },
                 {
-                  "indexed": false,
-                  "internalType": "int256",
-                  "name": "fee",
-                  "type": "int256"
-                }
-              ],
-              "name": "BuyerFeeUpdated",
-              "type": "event"
-            },
-            {
-              "anonymous": false,
-              "inputs": [
-                {
-                  "indexed": false,
-                  "internalType": "uint64",
-                  "name": "version",
-                  "type": "uint64"
-                }
-              ],
-              "name": "Initialized",
-              "type": "event"
-            },
-            {
-              "anonymous": false,
-              "inputs": [
-                {
-                  "indexed": false,
+                  "indexed": true,
                   "internalType": "address",
-                  "name": "vesting",
+                  "name": "newOwner",
                   "type": "address"
-                },
-                {
-                  "indexed": false,
-                  "internalType": "uint256",
-                  "name": "maxSellPercent",
-                  "type": "uint256"
                 }
               ],
-              "name": "MaxSellPercentUpdated",
+              "name": "OwnershipTransferred",
               "type": "event"
             },
             {
-              "anonymous": false,
-              "inputs": [
+              "inputs": [],
+              "name": "UPGRADE_INTERFACE_VERSION",
+              "outputs": [
                 {
-                  "indexed": false,
-                  "internalType": "address",
-                  "name": "vesting",
-                  "type": "address"
-                },
-                {
-                  "indexed": false,
-                  "internalType": "int256",
-                  "name": "fee",
-                  "type": "int256"
-                }
-              ],
-              "name": "SellerFeeUpdated",
-              "type": "event"
-            },
-            {
-              "anonymous": false,
-              "inputs": [
-                {
-                  "indexed": false,
-                  "internalType": "address",
-                  "name": "vesting",
-                  "type": "address"
-                },
-                {
-                  "indexed": false,
-                  "internalType": "bool",
-                  "name": "sellable",
-                  "type": "bool"
-                }
-              ],
-              "name": "VestingSellableUpdated",
-              "type": "event"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
+                  "internalType": "string",
                   "name": "",
-                  "type": "address"
-                },
-                {
-                  "internalType": "address",
-                  "name": "",
-                  "type": "address"
-                }
-              ],
-              "name": "allocations",
-              "outputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "bought",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "sold",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "stepsBought",
-                  "type": "uint256"
+                  "type": "string"
                 }
               ],
               "stateMutability": "view",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "buyer",
-                  "type": "address"
-                },
-                {
-                  "internalType": "address",
-                  "name": "vesting",
-                  "type": "address"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "amount",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "listingId",
-                  "type": "uint256"
-                }
-              ],
-              "name": "completePurchase",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "_vestingPlan",
-                  "type": "address"
-                }
-              ],
-              "name": "getVestingFees",
-              "outputs": [
-                {
-                  "internalType": "int256",
-                  "name": "buyerFee",
-                  "type": "int256"
-                },
-                {
-                  "internalType": "int256",
-                  "name": "sellerFee",
-                  "type": "int256"
-                }
-              ],
-              "stateMutability": "view",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "_vestingPlan",
-                  "type": "address"
-                }
-              ],
-              "name": "getVestingTokenAddress",
-              "outputs": [
-                {
-                  "internalType": "address",
-                  "name": "_token",
-                  "type": "address"
-                }
-              ],
-              "stateMutability": "view",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "_s2admin",
-                  "type": "address"
-                }
-              ],
-              "name": "initialize",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "seller",
-                  "type": "address"
-                },
-                {
-                  "internalType": "address",
-                  "name": "plan",
-                  "type": "address"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "amount",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "listingId",
-                  "type": "uint256"
-                }
-              ],
-              "name": "listVesting",
-              "outputs": [],
-              "stateMutability": "nonpayable",
               "type": "function"
             },
             {
               "inputs": [],
-              "name": "marketplace",
+              "name": "owner",
               "outputs": [
                 {
                   "internalType": "address",
@@ -258,53 +78,11 @@
                 }
               ],
               "stateMutability": "view",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "_grantor",
-                  "type": "address"
-                },
-                {
-                  "internalType": "address",
-                  "name": "_newGrantor",
-                  "type": "address"
-                },
-                {
-                  "internalType": "address",
-                  "name": "vesting",
-                  "type": "address"
-                }
-              ],
-              "name": "reallocateVesting",
-              "outputs": [],
-              "stateMutability": "nonpayable",
               "type": "function"
             },
             {
               "inputs": [],
-              "name": "s2Admin",
-              "outputs": [
-                {
-                  "internalType": "address",
-                  "name": "",
-                  "type": "address"
-                }
-              ],
-              "stateMutability": "view",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "_admin",
-                  "type": "address"
-                }
-              ],
-              "name": "setAdmin",
+              "name": "renounceOwnership",
               "outputs": [],
               "stateMutability": "nonpayable",
               "type": "function"
@@ -313,16 +91,11 @@
               "inputs": [
                 {
                   "internalType": "address",
-                  "name": "_vesting",
+                  "name": "newOwner",
                   "type": "address"
-                },
-                {
-                  "internalType": "int256",
-                  "name": "_fee",
-                  "type": "int256"
                 }
               ],
-              "name": "setBuyerFee",
+              "name": "transferOwnership",
               "outputs": [],
               "stateMutability": "nonpayable",
               "type": "function"
@@ -330,195 +103,24 @@
             {
               "inputs": [
                 {
-                  "internalType": "address",
-                  "name": "_marketplace",
+                  "internalType": "contract ITransparentUpgradeableProxy",
+                  "name": "proxy",
                   "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "implementation",
+                  "type": "address"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "data",
+                  "type": "bytes"
                 }
               ],
-              "name": "setMarketplace",
+              "name": "upgradeAndCall",
               "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "vesting",
-                  "type": "address"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "maxSellPercent",
-                  "type": "uint256"
-                }
-              ],
-              "name": "setMaxSellPercent",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "vesting",
-                  "type": "address"
-                },
-                {
-                  "internalType": "bool",
-                  "name": "sellable",
-                  "type": "bool"
-                }
-              ],
-              "name": "setSellable",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "_vesting",
-                  "type": "address"
-                },
-                {
-                  "internalType": "int256",
-                  "name": "_fee",
-                  "type": "int256"
-                }
-              ],
-              "name": "setSellerFee",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "_vestingDeployer",
-                  "type": "address"
-                }
-              ],
-              "name": "setVestingDeployer",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "seller",
-                  "type": "address"
-                },
-                {
-                  "internalType": "address",
-                  "name": "plan",
-                  "type": "address"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "amount",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "listingId",
-                  "type": "uint256"
-                }
-              ],
-              "name": "unlistVesting",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [],
-              "name": "vestingDeployer",
-              "outputs": [
-                {
-                  "internalType": "address",
-                  "name": "",
-                  "type": "address"
-                }
-              ],
-              "stateMutability": "view",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "",
-                  "type": "address"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "",
-                  "type": "uint256"
-                }
-              ],
-              "name": "vestingPlan",
-              "outputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "stepsClaimed",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "address",
-                  "name": "seller",
-                  "type": "address"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "amount",
-                  "type": "uint256"
-                }
-              ],
-              "stateMutability": "view",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "",
-                  "type": "address"
-                }
-              ],
-              "name": "vestingSettings",
-              "outputs": [
-                {
-                  "internalType": "bool",
-                  "name": "sellable",
-                  "type": "bool"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "maxSellPercent",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "int256",
-                  "name": "buyerFee",
-                  "type": "int256"
-                },
-                {
-                  "internalType": "int256",
-                  "name": "sellerFee",
-                  "type": "int256"
-                },
-                {
-                  "internalType": "bool",
-                  "name": "initialized",
-                  "type": "bool"
-                }
-              ],
-              "stateMutability": "view",
+              "stateMutability": "payable",
               "type": "function"
             }
           ]
