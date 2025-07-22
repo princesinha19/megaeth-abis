@@ -3931,5 +3931,7988 @@
         "type": "function"
       }
     ]
+  },
+  "0xF5b0c4Ea7870c959E2b40015f2416355F2aaf72A": {
+    "name": "MagicDropTokenImplRegistry",
+    "abi": [
+      {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "inputs": [],
+        "name": "AlreadyInitialized",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "DefaultImplementationNotRegistered",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "ImplementationDoesNotSupportStandard",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "InvalidImplementation",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "InvalidInitialization",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NewImplementationCannotBeZero",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NewOwnerIsZeroAddress",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NoHandoverRequest",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NotInitializing",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "Unauthorized",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "UnauthorizedCallContext",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "UnsupportedTokenStandard",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "UpgradeFailed",
+        "type": "error"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint32",
+            "name": "implId",
+            "type": "uint32"
+          }
+        ],
+        "name": "DefaultImplementationSet",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint32",
+            "name": "implId",
+            "type": "uint32"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "deploymentFee",
+            "type": "uint256"
+          }
+        ],
+        "name": "DeploymentFeeSet",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          },
+          {
+            "indexed": false,
+            "internalType": "address",
+            "name": "impl",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint32",
+            "name": "implId",
+            "type": "uint32"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "deploymentFee",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "mintFee",
+            "type": "uint256"
+          }
+        ],
+        "name": "ImplementationRegistered",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint32",
+            "name": "implId",
+            "type": "uint32"
+          }
+        ],
+        "name": "ImplementationUnregistered",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "uint64",
+            "name": "version",
+            "type": "uint64"
+          }
+        ],
+        "name": "Initialized",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint32",
+            "name": "implId",
+            "type": "uint32"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "mintFee",
+            "type": "uint256"
+          }
+        ],
+        "name": "MintFeeSet",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "pendingOwner",
+            "type": "address"
+          }
+        ],
+        "name": "OwnershipHandoverCanceled",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "pendingOwner",
+            "type": "address"
+          }
+        ],
+        "name": "OwnershipHandoverRequested",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "oldOwner",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "user",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "roles",
+            "type": "uint256"
+          }
+        ],
+        "name": "RolesUpdated",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "implementation",
+            "type": "address"
+          }
+        ],
+        "name": "Upgraded",
+        "type": "event"
+      },
+      {
+        "inputs": [],
+        "name": "MANAGER_ROLE",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "cancelOwnershipHandover",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "pendingOwner",
+            "type": "address"
+          }
+        ],
+        "name": "completeOwnershipHandover",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          }
+        ],
+        "name": "getDefaultImplementation",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "implAddress",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          }
+        ],
+        "name": "getDefaultImplementationID",
+        "outputs": [
+          {
+            "internalType": "uint32",
+            "name": "defaultImplId",
+            "type": "uint32"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint32",
+            "name": "implId",
+            "type": "uint32"
+          }
+        ],
+        "name": "getDeploymentFee",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "deploymentFee",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint32",
+            "name": "implId",
+            "type": "uint32"
+          }
+        ],
+        "name": "getImplementation",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "implAddress",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint32",
+            "name": "implId",
+            "type": "uint32"
+          }
+        ],
+        "name": "getMintFee",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "mintFee",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "user",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "roles",
+            "type": "uint256"
+          }
+        ],
+        "name": "grantRoles",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "user",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "roles",
+            "type": "uint256"
+          }
+        ],
+        "name": "hasAllRoles",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "user",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "roles",
+            "type": "uint256"
+          }
+        ],
+        "name": "hasAnyRole",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "initialOwner",
+            "type": "address"
+          }
+        ],
+        "name": "initialize",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "result",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "pendingOwner",
+            "type": "address"
+          }
+        ],
+        "name": "ownershipHandoverExpiresAt",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "result",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "proxiableUUID",
+        "outputs": [
+          {
+            "internalType": "bytes32",
+            "name": "",
+            "type": "bytes32"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          },
+          {
+            "internalType": "address",
+            "name": "impl",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "isDefault",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "deploymentFee",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "mintFee",
+            "type": "uint256"
+          }
+        ],
+        "name": "registerImplementation",
+        "outputs": [
+          {
+            "internalType": "uint32",
+            "name": "",
+            "type": "uint32"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "roles",
+            "type": "uint256"
+          }
+        ],
+        "name": "renounceRoles",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "requestOwnershipHandover",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "user",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "roles",
+            "type": "uint256"
+          }
+        ],
+        "name": "revokeRoles",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "user",
+            "type": "address"
+          }
+        ],
+        "name": "rolesOf",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "roles",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint32",
+            "name": "implId",
+            "type": "uint32"
+          }
+        ],
+        "name": "setDefaultImplementation",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint32",
+            "name": "implId",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "deploymentFee",
+            "type": "uint256"
+          }
+        ],
+        "name": "setDeploymentFee",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint32",
+            "name": "implId",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "mintFee",
+            "type": "uint256"
+          }
+        ],
+        "name": "setMintFee",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint32",
+            "name": "implId",
+            "type": "uint32"
+          }
+        ],
+        "name": "unregisterImplementation",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "newImplementation",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes",
+            "name": "data",
+            "type": "bytes"
+          }
+        ],
+        "name": "upgradeToAndCall",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      }
+    ]
+  },
+  "0x676a04aC34986d6cbc7aA7e8A303c8a804d8E82b": {
+    "name": "MagicDropCloneFactory",
+    "abi": [
+      {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "inputs": [],
+        "name": "AlreadyInitialized",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "InitialOwnerCannotBeZero",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "InitializationFailed",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "InsufficientDeploymentFee",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "InvalidInitialization",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NewImplementationCannotBeZero",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NewOwnerIsZeroAddress",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NoHandoverRequest",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NotInitializing",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "RegistryAddressCannotBeZero",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "Unauthorized",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "UnauthorizedCallContext",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "UpgradeFailed",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "WithdrawalFailed",
+        "type": "error"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "uint64",
+            "name": "version",
+            "type": "uint64"
+          }
+        ],
+        "name": "Initialized",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [],
+        "name": "MagicDropFactoryInitialized",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "address",
+            "name": "contractAddress",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "address",
+            "name": "initialOwner",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint32",
+            "name": "implId",
+            "type": "uint32"
+          },
+          {
+            "indexed": false,
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "mintFee",
+            "type": "uint256"
+          }
+        ],
+        "name": "NewContractInitialized",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "pendingOwner",
+            "type": "address"
+          }
+        ],
+        "name": "OwnershipHandoverCanceled",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "pendingOwner",
+            "type": "address"
+          }
+        ],
+        "name": "OwnershipHandoverRequested",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "oldOwner",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "implementation",
+            "type": "address"
+          }
+        ],
+        "name": "Upgraded",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "address",
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "name": "Withdrawal",
+        "type": "event"
+      },
+      {
+        "stateMutability": "payable",
+        "type": "fallback"
+      },
+      {
+        "inputs": [],
+        "name": "cancelOwnershipHandover",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "pendingOwner",
+            "type": "address"
+          }
+        ],
+        "name": "completeOwnershipHandover",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          },
+          {
+            "internalType": "address payable",
+            "name": "initialOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint32",
+            "name": "implId",
+            "type": "uint32"
+          }
+        ],
+        "name": "createContract",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          },
+          {
+            "internalType": "address payable",
+            "name": "initialOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint32",
+            "name": "implId",
+            "type": "uint32"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "salt",
+            "type": "bytes32"
+          }
+        ],
+        "name": "createContractDeterministic",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "getRegistry",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "initialOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "registry",
+            "type": "address"
+          }
+        ],
+        "name": "initialize",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "result",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "pendingOwner",
+            "type": "address"
+          }
+        ],
+        "name": "ownershipHandoverExpiresAt",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "result",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "enum TokenStandard",
+            "name": "standard",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint32",
+            "name": "implId",
+            "type": "uint32"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "salt",
+            "type": "bytes32"
+          }
+        ],
+        "name": "predictDeploymentAddress",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "proxiableUUID",
+        "outputs": [
+          {
+            "internalType": "bytes32",
+            "name": "",
+            "type": "bytes32"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "requestOwnershipHandover",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "newImplementation",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes",
+            "name": "data",
+            "type": "bytes"
+          }
+        ],
+        "name": "upgradeToAndCall",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "to",
+            "type": "address"
+          }
+        ],
+        "name": "withdraw",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "stateMutability": "payable",
+        "type": "receive"
+      }
+    ]
+  },
+  "0xAfFb4E2A83D38fbB28b012600b78947A12Bf4733": {
+    "name": "ERC721MInitializableV1_0_1",
+    "abi": [
+      {
+        "type": "constructor",
+        "inputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "addAuthorizedMinter",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "approve",
+        "inputs": [
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "assertValidCosign",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "qty",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "signature",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "cosignNonce",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "authorizedMint",
+        "inputs": [
+          {
+            "name": "qty",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "limit",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "proof",
+            "type": "bytes32[]",
+            "internalType": "bytes32[]"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "signature",
+            "type": "bytes",
+            "internalType": "bytes"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "balanceOf",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "burn",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "cancelOwnershipHandover",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "completeOwnershipHandover",
+        "inputs": [
+          {
+            "name": "pendingOwner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "contractNameAndVersion",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "stateMutability": "pure"
+      },
+      {
+        "type": "function",
+        "name": "contractURI",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "explicitOwnershipOf",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "ownership",
+            "type": "tuple",
+            "internalType": "struct IERC721A.TokenOwnership",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "startTimestamp",
+                "type": "uint64",
+                "internalType": "uint64"
+              },
+              {
+                "name": "burned",
+                "type": "bool",
+                "internalType": "bool"
+              },
+              {
+                "name": "extraData",
+                "type": "uint24",
+                "internalType": "uint24"
+              }
+            ]
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "explicitOwnershipsOf",
+        "inputs": [
+          {
+            "name": "tokenIds",
+            "type": "uint256[]",
+            "internalType": "uint256[]"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "tuple[]",
+            "internalType": "struct IERC721A.TokenOwnership[]",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "startTimestamp",
+                "type": "uint64",
+                "internalType": "uint64"
+              },
+              {
+                "name": "burned",
+                "type": "bool",
+                "internalType": "bool"
+              },
+              {
+                "name": "extraData",
+                "type": "uint24",
+                "internalType": "uint24"
+              }
+            ]
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getActiveStageFromTimestamp",
+        "inputs": [
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getApproved",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getConfig",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "tuple",
+            "internalType": "struct SetupConfig",
+            "components": [
+              {
+                "name": "maxSupply",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "walletLimit",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "baseURI",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "contractURI",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "stages",
+                "type": "tuple[]",
+                "internalType": "struct MintStageInfo[]",
+                "components": [
+                  {
+                    "name": "price",
+                    "type": "uint80",
+                    "internalType": "uint80"
+                  },
+                  {
+                    "name": "mintFee",
+                    "type": "uint80",
+                    "internalType": "uint80"
+                  },
+                  {
+                    "name": "walletLimit",
+                    "type": "uint32",
+                    "internalType": "uint32"
+                  },
+                  {
+                    "name": "merkleRoot",
+                    "type": "bytes32",
+                    "internalType": "bytes32"
+                  },
+                  {
+                    "name": "maxStageSupply",
+                    "type": "uint24",
+                    "internalType": "uint24"
+                  },
+                  {
+                    "name": "startTimeUnixSeconds",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  },
+                  {
+                    "name": "endTimeUnixSeconds",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "payoutRecipient",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "royaltyRecipient",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "royaltyBps",
+                "type": "uint96",
+                "internalType": "uint96"
+              }
+            ]
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getCosignDigest",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "qty",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "waiveMintFee",
+            "type": "bool",
+            "internalType": "bool"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "cosignNonce",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getCosignNonce",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getCosigner",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getGlobalWalletLimit",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getMaxMintableSupply",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getMintCurrency",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getMintable",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getNumberStages",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getStageInfo",
+        "inputs": [
+          {
+            "name": "index",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "tuple",
+            "internalType": "struct MintStageInfo",
+            "components": [
+              {
+                "name": "price",
+                "type": "uint80",
+                "internalType": "uint80"
+              },
+              {
+                "name": "mintFee",
+                "type": "uint80",
+                "internalType": "uint80"
+              },
+              {
+                "name": "walletLimit",
+                "type": "uint32",
+                "internalType": "uint32"
+              },
+              {
+                "name": "merkleRoot",
+                "type": "bytes32",
+                "internalType": "bytes32"
+              },
+              {
+                "name": "maxStageSupply",
+                "type": "uint24",
+                "internalType": "uint24"
+              },
+              {
+                "name": "startTimeUnixSeconds",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "endTimeUnixSeconds",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          },
+          {
+            "name": "",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getTimestampExpirySeconds",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "initialize",
+        "inputs": [
+          {
+            "name": "name",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "symbol",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "initialOwner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "isApprovedForAll",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "operator",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "isAuthorizedMinter",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "isSetupLocked",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "isTransferable",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "mint",
+        "inputs": [
+          {
+            "name": "qty",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "limit",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "proof",
+            "type": "bytes32[]",
+            "internalType": "bytes32[]"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "signature",
+            "type": "bytes",
+            "internalType": "bytes"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "name",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "owner",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "result",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "ownerMint",
+        "inputs": [
+          {
+            "name": "qty",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "ownerOf",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "ownershipHandoverExpiresAt",
+        "inputs": [
+          {
+            "name": "pendingOwner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "result",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "removeAuthorizedMinter",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "renounceOwnership",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "requestOwnershipHandover",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "royaltyInfo",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "salePrice",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "receiver",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "royaltyAmount",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "safeTransferFrom",
+        "inputs": [
+          {
+            "name": "from",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "safeTransferFrom",
+        "inputs": [
+          {
+            "name": "from",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "_data",
+            "type": "bytes",
+            "internalType": "bytes"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "setApprovalForAll",
+        "inputs": [
+          {
+            "name": "operator",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "approved",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setBaseURI",
+        "inputs": [
+          {
+            "name": "baseURI",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setContractURI",
+        "inputs": [
+          {
+            "name": "uri",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setCosigner",
+        "inputs": [
+          {
+            "name": "cosigner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setDefaultRoyalty",
+        "inputs": [
+          {
+            "name": "receiver",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "feeNumerator",
+            "type": "uint96",
+            "internalType": "uint96"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setGlobalWalletLimit",
+        "inputs": [
+          {
+            "name": "globalWalletLimit",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setMaxMintableSupply",
+        "inputs": [
+          {
+            "name": "maxMintableSupply",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setMintable",
+        "inputs": [
+          {
+            "name": "mintable",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setStages",
+        "inputs": [
+          {
+            "name": "newStages",
+            "type": "tuple[]",
+            "internalType": "struct MintStageInfo[]",
+            "components": [
+              {
+                "name": "price",
+                "type": "uint80",
+                "internalType": "uint80"
+              },
+              {
+                "name": "mintFee",
+                "type": "uint80",
+                "internalType": "uint80"
+              },
+              {
+                "name": "walletLimit",
+                "type": "uint32",
+                "internalType": "uint32"
+              },
+              {
+                "name": "merkleRoot",
+                "type": "bytes32",
+                "internalType": "bytes32"
+              },
+              {
+                "name": "maxStageSupply",
+                "type": "uint24",
+                "internalType": "uint24"
+              },
+              {
+                "name": "startTimeUnixSeconds",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "endTimeUnixSeconds",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setTimestampExpirySeconds",
+        "inputs": [
+          {
+            "name": "timestampExpirySeconds",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setTokenURISuffix",
+        "inputs": [
+          {
+            "name": "suffix",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setTransferable",
+        "inputs": [
+          {
+            "name": "transferable",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setup",
+        "inputs": [
+          {
+            "name": "baseURI",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "tokenURISuffix",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "maxMintableSupply",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "globalWalletLimit",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "mintCurrency",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "fundReceiver",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "initialStages",
+            "type": "tuple[]",
+            "internalType": "struct MintStageInfo[]",
+            "components": [
+              {
+                "name": "price",
+                "type": "uint80",
+                "internalType": "uint80"
+              },
+              {
+                "name": "mintFee",
+                "type": "uint80",
+                "internalType": "uint80"
+              },
+              {
+                "name": "walletLimit",
+                "type": "uint32",
+                "internalType": "uint32"
+              },
+              {
+                "name": "merkleRoot",
+                "type": "bytes32",
+                "internalType": "bytes32"
+              },
+              {
+                "name": "maxStageSupply",
+                "type": "uint24",
+                "internalType": "uint24"
+              },
+              {
+                "name": "startTimeUnixSeconds",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "endTimeUnixSeconds",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          },
+          {
+            "name": "royaltyReceiver",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "royaltyFeeNumerator",
+            "type": "uint96",
+            "internalType": "uint96"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "supportsInterface",
+        "inputs": [
+          {
+            "name": "interfaceId",
+            "type": "bytes4",
+            "internalType": "bytes4"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "symbol",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "tokenURI",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "tokensOfOwner",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256[]",
+            "internalType": "uint256[]"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "tokensOfOwnerIn",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "start",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "stop",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256[]",
+            "internalType": "uint256[]"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "totalMintedByAddress",
+        "inputs": [
+          {
+            "name": "a",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "totalSupply",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "result",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "transferFrom",
+        "inputs": [
+          {
+            "name": "from",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "transferOwnership",
+        "inputs": [
+          {
+            "name": "newOwner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "withdraw",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "withdrawERC20",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "event",
+        "name": "Approval",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "approved",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "indexed": true,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "ApprovalForAll",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "operator",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "approved",
+            "type": "bool",
+            "indexed": false,
+            "internalType": "bool"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "AuthorizedMinterAdded",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "AuthorizedMinterRemoved",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "ConsecutiveTransfer",
+        "inputs": [
+          {
+            "name": "fromTokenId",
+            "type": "uint256",
+            "indexed": true,
+            "internalType": "uint256"
+          },
+          {
+            "name": "toTokenId",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          },
+          {
+            "name": "from",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "ContractURIUpdated",
+        "inputs": [],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "DefaultRoyaltySet",
+        "inputs": [
+          {
+            "name": "receiver",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "feeNumerator",
+            "type": "uint96",
+            "indexed": false,
+            "internalType": "uint96"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "Initialized",
+        "inputs": [
+          {
+            "name": "version",
+            "type": "uint64",
+            "indexed": false,
+            "internalType": "uint64"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "OwnershipHandoverCanceled",
+        "inputs": [
+          {
+            "name": "pendingOwner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "OwnershipHandoverRequested",
+        "inputs": [
+          {
+            "name": "pendingOwner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "OwnershipTransferred",
+        "inputs": [
+          {
+            "name": "oldOwner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "newOwner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetActiveStage",
+        "inputs": [
+          {
+            "name": "activeStage",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetBaseURI",
+        "inputs": [
+          {
+            "name": "baseURI",
+            "type": "string",
+            "indexed": false,
+            "internalType": "string"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetContractURI",
+        "inputs": [
+          {
+            "name": "uri",
+            "type": "string",
+            "indexed": false,
+            "internalType": "string"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetCosigner",
+        "inputs": [
+          {
+            "name": "cosigner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetDefaultRoyalty",
+        "inputs": [
+          {
+            "name": "receiver",
+            "type": "address",
+            "indexed": false,
+            "internalType": "address"
+          },
+          {
+            "name": "feeNumerator",
+            "type": "uint96",
+            "indexed": false,
+            "internalType": "uint96"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetGlobalWalletLimit",
+        "inputs": [
+          {
+            "name": "globalWalletLimit",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetMaxMintableSupply",
+        "inputs": [
+          {
+            "name": "maxMintableSupply",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetMintCurrency",
+        "inputs": [
+          {
+            "name": "mintCurrency",
+            "type": "address",
+            "indexed": false,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetMintable",
+        "inputs": [
+          {
+            "name": "mintable",
+            "type": "bool",
+            "indexed": false,
+            "internalType": "bool"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetTimestampExpirySeconds",
+        "inputs": [
+          {
+            "name": "timestampExpirySeconds",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetTokenURISuffix",
+        "inputs": [
+          {
+            "name": "suffix",
+            "type": "string",
+            "indexed": false,
+            "internalType": "string"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetTransferable",
+        "inputs": [
+          {
+            "name": "transferable",
+            "type": "bool",
+            "indexed": false,
+            "internalType": "bool"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "TokenRoyaltySet",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "indexed": true,
+            "internalType": "uint256"
+          },
+          {
+            "name": "receiver",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "feeNumerator",
+            "type": "uint96",
+            "indexed": false,
+            "internalType": "uint96"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "Transfer",
+        "inputs": [
+          {
+            "name": "from",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "indexed": true,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "UpdateStage",
+        "inputs": [
+          {
+            "name": "stage",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          },
+          {
+            "name": "price",
+            "type": "uint80",
+            "indexed": false,
+            "internalType": "uint80"
+          },
+          {
+            "name": "mintFee",
+            "type": "uint80",
+            "indexed": false,
+            "internalType": "uint80"
+          },
+          {
+            "name": "walletLimit",
+            "type": "uint32",
+            "indexed": false,
+            "internalType": "uint32"
+          },
+          {
+            "name": "merkleRoot",
+            "type": "bytes32",
+            "indexed": false,
+            "internalType": "bytes32"
+          },
+          {
+            "name": "maxStageSupply",
+            "type": "uint24",
+            "indexed": false,
+            "internalType": "uint24"
+          },
+          {
+            "name": "startTimeUnixSeconds",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          },
+          {
+            "name": "endTimeUnixSeconds",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "Withdraw",
+        "inputs": [
+          {
+            "name": "value",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "WithdrawERC20",
+        "inputs": [
+          {
+            "name": "mintCurrency",
+            "type": "address",
+            "indexed": false,
+            "internalType": "address"
+          },
+          {
+            "name": "value",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "error",
+        "name": "AlreadyInitialized",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "ApprovalCallerNotOwnerNorApproved",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "ApprovalQueryForNonexistentToken",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "BalanceQueryForZeroAddress",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "CannotIncreaseMaxMintableSupply",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "ContractAlreadySetup",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "CosignerNotSet",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "GlobalWalletLimitOverflow",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InitialOwnerCannotBeZero",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InsufficientBalance",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InsufficientStageTimeGap",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidCosignSignature",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidInitialization",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidProof",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidQueryRange",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidStage",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidStageArgsLength",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidStartAndEndTimestamp",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "MintERC2309QuantityExceedsLimit",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "MintToZeroAddress",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "MintZeroQuantity",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "Mintable",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NewOwnerIsZeroAddress",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NewSupplyLessThanTotalSupply",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NoHandoverRequest",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NoSupplyLeft",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotAuthorized",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotCompatibleWithSpotMints",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotEnoughValue",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotInitializing",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotMintable",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotSupported",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotTransferable",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "OwnerQueryForNonexistentToken",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "OwnershipNotInitializedForExtraData",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "Reentrancy",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "RoyaltyOverflow",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "RoyaltyReceiverIsZeroAddress",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "SequentialMintExceedsLimit",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "SequentialUpToTooSmall",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "SpotMintTokenIdTooSmall",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "StageSupplyExceeded",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TimestampExpired",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TokenAlreadyExists",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TransferCallerNotOwnerNorApproved",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TransferFailed",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TransferFromIncorrectOwner",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TransferToNonERC721ReceiverImplementer",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TransferToZeroAddress",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TransferableAlreadySet",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "URIQueryForNonexistentToken",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "Unauthorized",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "WalletGlobalLimitExceeded",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "WalletStageLimitExceeded",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "WithdrawFailed",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "WrongMintCurrency",
+        "inputs": []
+      }
+    ]
+  },
+  "0x0277c124364d5Ed624F369cD0A2561145a077ECa": {
+    "name": "ERC721CMInitializableV1_0_1",
+    "abi": [
+      {
+        "type": "constructor",
+        "inputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "DEFAULT_TRANSFER_VALIDATOR",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "__ERC721ACQueryableInitializable_init",
+        "inputs": [
+          {
+            "name": "name_",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "symbol_",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "addAuthorizedMinter",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "approve",
+        "inputs": [
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "assertValidCosign",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "qty",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "signature",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "cosignNonce",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "authorizedMint",
+        "inputs": [
+          {
+            "name": "qty",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "limit",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "proof",
+            "type": "bytes32[]",
+            "internalType": "bytes32[]"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "signature",
+            "type": "bytes",
+            "internalType": "bytes"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "autoApproveTransfersFromValidator",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "balanceOf",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "burn",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "cancelOwnershipHandover",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "completeOwnershipHandover",
+        "inputs": [
+          {
+            "name": "pendingOwner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "contractNameAndVersion",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "stateMutability": "pure"
+      },
+      {
+        "type": "function",
+        "name": "contractURI",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "explicitOwnershipOf",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "ownership",
+            "type": "tuple",
+            "internalType": "struct IERC721A.TokenOwnership",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "startTimestamp",
+                "type": "uint64",
+                "internalType": "uint64"
+              },
+              {
+                "name": "burned",
+                "type": "bool",
+                "internalType": "bool"
+              },
+              {
+                "name": "extraData",
+                "type": "uint24",
+                "internalType": "uint24"
+              }
+            ]
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "explicitOwnershipsOf",
+        "inputs": [
+          {
+            "name": "tokenIds",
+            "type": "uint256[]",
+            "internalType": "uint256[]"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "tuple[]",
+            "internalType": "struct IERC721A.TokenOwnership[]",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "startTimestamp",
+                "type": "uint64",
+                "internalType": "uint64"
+              },
+              {
+                "name": "burned",
+                "type": "bool",
+                "internalType": "bool"
+              },
+              {
+                "name": "extraData",
+                "type": "uint24",
+                "internalType": "uint24"
+              }
+            ]
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getActiveStageFromTimestamp",
+        "inputs": [
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getApproved",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getConfig",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "tuple",
+            "internalType": "struct SetupConfig",
+            "components": [
+              {
+                "name": "maxSupply",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "walletLimit",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "baseURI",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "contractURI",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "stages",
+                "type": "tuple[]",
+                "internalType": "struct MintStageInfo[]",
+                "components": [
+                  {
+                    "name": "price",
+                    "type": "uint80",
+                    "internalType": "uint80"
+                  },
+                  {
+                    "name": "mintFee",
+                    "type": "uint80",
+                    "internalType": "uint80"
+                  },
+                  {
+                    "name": "walletLimit",
+                    "type": "uint32",
+                    "internalType": "uint32"
+                  },
+                  {
+                    "name": "merkleRoot",
+                    "type": "bytes32",
+                    "internalType": "bytes32"
+                  },
+                  {
+                    "name": "maxStageSupply",
+                    "type": "uint24",
+                    "internalType": "uint24"
+                  },
+                  {
+                    "name": "startTimeUnixSeconds",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  },
+                  {
+                    "name": "endTimeUnixSeconds",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "payoutRecipient",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "royaltyRecipient",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "royaltyBps",
+                "type": "uint96",
+                "internalType": "uint96"
+              }
+            ]
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getCosignDigest",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "qty",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "waiveMintFee",
+            "type": "bool",
+            "internalType": "bool"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "cosignNonce",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getCosignNonce",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getCosigner",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getGlobalWalletLimit",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getMaxMintableSupply",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getMintCurrency",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getMintable",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getNumberStages",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getStageInfo",
+        "inputs": [
+          {
+            "name": "index",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "tuple",
+            "internalType": "struct MintStageInfo",
+            "components": [
+              {
+                "name": "price",
+                "type": "uint80",
+                "internalType": "uint80"
+              },
+              {
+                "name": "mintFee",
+                "type": "uint80",
+                "internalType": "uint80"
+              },
+              {
+                "name": "walletLimit",
+                "type": "uint32",
+                "internalType": "uint32"
+              },
+              {
+                "name": "merkleRoot",
+                "type": "bytes32",
+                "internalType": "bytes32"
+              },
+              {
+                "name": "maxStageSupply",
+                "type": "uint24",
+                "internalType": "uint24"
+              },
+              {
+                "name": "startTimeUnixSeconds",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "endTimeUnixSeconds",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          },
+          {
+            "name": "",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getTimestampExpirySeconds",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getTransferValidationFunction",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "functionSignature",
+            "type": "bytes4",
+            "internalType": "bytes4"
+          },
+          {
+            "name": "isViewFunction",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "pure"
+      },
+      {
+        "type": "function",
+        "name": "getTransferValidator",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "validator",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "initialize",
+        "inputs": [
+          {
+            "name": "name",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "symbol",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "initialOwner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "isApprovedForAll",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "operator",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "isApproved",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "isAuthorizedMinter",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "isSetupLocked",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "isTransferable",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "mint",
+        "inputs": [
+          {
+            "name": "qty",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "limit",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "proof",
+            "type": "bytes32[]",
+            "internalType": "bytes32[]"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "signature",
+            "type": "bytes",
+            "internalType": "bytes"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "name",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "owner",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "result",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "ownerMint",
+        "inputs": [
+          {
+            "name": "qty",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "ownerOf",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "ownershipHandoverExpiresAt",
+        "inputs": [
+          {
+            "name": "pendingOwner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "result",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "removeAuthorizedMinter",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "renounceOwnership",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "requestOwnershipHandover",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "royaltyInfo",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "salePrice",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "receiver",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "royaltyAmount",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "safeTransferFrom",
+        "inputs": [
+          {
+            "name": "from",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "safeTransferFrom",
+        "inputs": [
+          {
+            "name": "from",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "_data",
+            "type": "bytes",
+            "internalType": "bytes"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "setApprovalForAll",
+        "inputs": [
+          {
+            "name": "operator",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "approved",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setAutomaticApprovalOfTransfersFromValidator",
+        "inputs": [
+          {
+            "name": "autoApprove",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setBaseURI",
+        "inputs": [
+          {
+            "name": "baseURI",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setContractURI",
+        "inputs": [
+          {
+            "name": "uri",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setCosigner",
+        "inputs": [
+          {
+            "name": "cosigner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setDefaultRoyalty",
+        "inputs": [
+          {
+            "name": "receiver",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "feeNumerator",
+            "type": "uint96",
+            "internalType": "uint96"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setGlobalWalletLimit",
+        "inputs": [
+          {
+            "name": "globalWalletLimit",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setMaxMintableSupply",
+        "inputs": [
+          {
+            "name": "maxMintableSupply",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setMintable",
+        "inputs": [
+          {
+            "name": "mintable",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setStages",
+        "inputs": [
+          {
+            "name": "newStages",
+            "type": "tuple[]",
+            "internalType": "struct MintStageInfo[]",
+            "components": [
+              {
+                "name": "price",
+                "type": "uint80",
+                "internalType": "uint80"
+              },
+              {
+                "name": "mintFee",
+                "type": "uint80",
+                "internalType": "uint80"
+              },
+              {
+                "name": "walletLimit",
+                "type": "uint32",
+                "internalType": "uint32"
+              },
+              {
+                "name": "merkleRoot",
+                "type": "bytes32",
+                "internalType": "bytes32"
+              },
+              {
+                "name": "maxStageSupply",
+                "type": "uint24",
+                "internalType": "uint24"
+              },
+              {
+                "name": "startTimeUnixSeconds",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "endTimeUnixSeconds",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setTimestampExpirySeconds",
+        "inputs": [
+          {
+            "name": "timestampExpirySeconds",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setTokenURISuffix",
+        "inputs": [
+          {
+            "name": "suffix",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setTransferValidator",
+        "inputs": [
+          {
+            "name": "transferValidator_",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setTransferable",
+        "inputs": [
+          {
+            "name": "transferable",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setup",
+        "inputs": [
+          {
+            "name": "baseURI",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "tokenURISuffix",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "maxMintableSupply",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "globalWalletLimit",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "mintCurrency",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "fundReceiver",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "initialStages",
+            "type": "tuple[]",
+            "internalType": "struct MintStageInfo[]",
+            "components": [
+              {
+                "name": "price",
+                "type": "uint80",
+                "internalType": "uint80"
+              },
+              {
+                "name": "mintFee",
+                "type": "uint80",
+                "internalType": "uint80"
+              },
+              {
+                "name": "walletLimit",
+                "type": "uint32",
+                "internalType": "uint32"
+              },
+              {
+                "name": "merkleRoot",
+                "type": "bytes32",
+                "internalType": "bytes32"
+              },
+              {
+                "name": "maxStageSupply",
+                "type": "uint24",
+                "internalType": "uint24"
+              },
+              {
+                "name": "startTimeUnixSeconds",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "endTimeUnixSeconds",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          },
+          {
+            "name": "royaltyReceiver",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "royaltyFeeNumerator",
+            "type": "uint96",
+            "internalType": "uint96"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "supportsInterface",
+        "inputs": [
+          {
+            "name": "interfaceId",
+            "type": "bytes4",
+            "internalType": "bytes4"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "symbol",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "tokenURI",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "tokensOfOwner",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256[]",
+            "internalType": "uint256[]"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "tokensOfOwnerIn",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "start",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "stop",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256[]",
+            "internalType": "uint256[]"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "totalMinted",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "totalMintedByAddress",
+        "inputs": [
+          {
+            "name": "a",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "totalSupply",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "result",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "transferFrom",
+        "inputs": [
+          {
+            "name": "from",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "transferOwnership",
+        "inputs": [
+          {
+            "name": "newOwner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "withdraw",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "withdrawERC20",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "event",
+        "name": "Approval",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "approved",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "indexed": true,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "ApprovalForAll",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "operator",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "approved",
+            "type": "bool",
+            "indexed": false,
+            "internalType": "bool"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "AuthorizedMinterAdded",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "AuthorizedMinterRemoved",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "AutomaticApprovalOfTransferValidatorSet",
+        "inputs": [
+          {
+            "name": "autoApproved",
+            "type": "bool",
+            "indexed": false,
+            "internalType": "bool"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "ConsecutiveTransfer",
+        "inputs": [
+          {
+            "name": "fromTokenId",
+            "type": "uint256",
+            "indexed": true,
+            "internalType": "uint256"
+          },
+          {
+            "name": "toTokenId",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          },
+          {
+            "name": "from",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "ContractURIUpdated",
+        "inputs": [],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "DefaultRoyaltySet",
+        "inputs": [
+          {
+            "name": "receiver",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "feeNumerator",
+            "type": "uint96",
+            "indexed": false,
+            "internalType": "uint96"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "Initialized",
+        "inputs": [
+          {
+            "name": "version",
+            "type": "uint64",
+            "indexed": false,
+            "internalType": "uint64"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "OwnershipHandoverCanceled",
+        "inputs": [
+          {
+            "name": "pendingOwner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "OwnershipHandoverRequested",
+        "inputs": [
+          {
+            "name": "pendingOwner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "OwnershipTransferred",
+        "inputs": [
+          {
+            "name": "oldOwner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "newOwner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetActiveStage",
+        "inputs": [
+          {
+            "name": "activeStage",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetBaseURI",
+        "inputs": [
+          {
+            "name": "baseURI",
+            "type": "string",
+            "indexed": false,
+            "internalType": "string"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetContractURI",
+        "inputs": [
+          {
+            "name": "uri",
+            "type": "string",
+            "indexed": false,
+            "internalType": "string"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetCosigner",
+        "inputs": [
+          {
+            "name": "cosigner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetDefaultRoyalty",
+        "inputs": [
+          {
+            "name": "receiver",
+            "type": "address",
+            "indexed": false,
+            "internalType": "address"
+          },
+          {
+            "name": "feeNumerator",
+            "type": "uint96",
+            "indexed": false,
+            "internalType": "uint96"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetGlobalWalletLimit",
+        "inputs": [
+          {
+            "name": "globalWalletLimit",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetMaxMintableSupply",
+        "inputs": [
+          {
+            "name": "maxMintableSupply",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetMintCurrency",
+        "inputs": [
+          {
+            "name": "mintCurrency",
+            "type": "address",
+            "indexed": false,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetMintable",
+        "inputs": [
+          {
+            "name": "mintable",
+            "type": "bool",
+            "indexed": false,
+            "internalType": "bool"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetTimestampExpirySeconds",
+        "inputs": [
+          {
+            "name": "timestampExpirySeconds",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetTokenURISuffix",
+        "inputs": [
+          {
+            "name": "suffix",
+            "type": "string",
+            "indexed": false,
+            "internalType": "string"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetTransferable",
+        "inputs": [
+          {
+            "name": "transferable",
+            "type": "bool",
+            "indexed": false,
+            "internalType": "bool"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "TokenRoyaltySet",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "indexed": true,
+            "internalType": "uint256"
+          },
+          {
+            "name": "receiver",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "feeNumerator",
+            "type": "uint96",
+            "indexed": false,
+            "internalType": "uint96"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "Transfer",
+        "inputs": [
+          {
+            "name": "from",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "indexed": true,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "TransferValidatorUpdated",
+        "inputs": [
+          {
+            "name": "oldValidator",
+            "type": "address",
+            "indexed": false,
+            "internalType": "address"
+          },
+          {
+            "name": "newValidator",
+            "type": "address",
+            "indexed": false,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "UpdateStage",
+        "inputs": [
+          {
+            "name": "stage",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          },
+          {
+            "name": "price",
+            "type": "uint80",
+            "indexed": false,
+            "internalType": "uint80"
+          },
+          {
+            "name": "mintFee",
+            "type": "uint80",
+            "indexed": false,
+            "internalType": "uint80"
+          },
+          {
+            "name": "walletLimit",
+            "type": "uint32",
+            "indexed": false,
+            "internalType": "uint32"
+          },
+          {
+            "name": "merkleRoot",
+            "type": "bytes32",
+            "indexed": false,
+            "internalType": "bytes32"
+          },
+          {
+            "name": "maxStageSupply",
+            "type": "uint24",
+            "indexed": false,
+            "internalType": "uint24"
+          },
+          {
+            "name": "startTimeUnixSeconds",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          },
+          {
+            "name": "endTimeUnixSeconds",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "Withdraw",
+        "inputs": [
+          {
+            "name": "value",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "WithdrawERC20",
+        "inputs": [
+          {
+            "name": "mintCurrency",
+            "type": "address",
+            "indexed": false,
+            "internalType": "address"
+          },
+          {
+            "name": "value",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "error",
+        "name": "AlreadyInitialized",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "ApprovalCallerNotOwnerNorApproved",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "ApprovalQueryForNonexistentToken",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "BalanceQueryForZeroAddress",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "CannotIncreaseMaxMintableSupply",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "ContractAlreadySetup",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "CosignerNotSet",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "CreatorTokenBase__InvalidTransferValidatorContract",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "GlobalWalletLimitOverflow",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InitialOwnerCannotBeZero",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InsufficientBalance",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InsufficientStageTimeGap",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidCosignSignature",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidInitialization",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidProof",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidQueryRange",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidStage",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidStageArgsLength",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidStartAndEndTimestamp",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "MintERC2309QuantityExceedsLimit",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "MintToZeroAddress",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "MintZeroQuantity",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "Mintable",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NewOwnerIsZeroAddress",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NewSupplyLessThanTotalSupply",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NoHandoverRequest",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NoSupplyLeft",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotAuthorized",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotCompatibleWithSpotMints",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotEnoughValue",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotInitializing",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotMintable",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotSupported",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotTransferable",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "OwnerQueryForNonexistentToken",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "OwnershipNotInitializedForExtraData",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "Reentrancy",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "RoyaltyOverflow",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "RoyaltyReceiverIsZeroAddress",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "SequentialMintExceedsLimit",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "SequentialUpToTooSmall",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "ShouldNotMintToBurnAddress",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "SpotMintTokenIdTooSmall",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "StageSupplyExceeded",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TimestampExpired",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TokenAlreadyExists",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TransferCallerNotOwnerNorApproved",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TransferFailed",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TransferFromIncorrectOwner",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TransferToNonERC721ReceiverImplementer",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TransferToZeroAddress",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TransferableAlreadySet",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "URIQueryForNonexistentToken",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "Unauthorized",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "WalletGlobalLimitExceeded",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "WalletStageLimitExceeded",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "WithdrawFailed",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "WrongMintCurrency",
+        "inputs": []
+      }
+    ]
+  },
+  "0x1cB4cd50c82773565520744dad6D252a418b0Df4": {
+    "name": "ERC1155MInitializableV1_0_1",
+    "abi": [
+      {
+        "type": "constructor",
+        "inputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "addAuthorizedMinter",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "approve",
+        "inputs": [
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "assertValidCosign",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "qty",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "signature",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "cosignNonce",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "authorizedMint",
+        "inputs": [
+          {
+            "name": "qty",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "limit",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "proof",
+            "type": "bytes32[]",
+            "internalType": "bytes32[]"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "signature",
+            "type": "bytes",
+            "internalType": "bytes"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "balanceOf",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "burn",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "cancelOwnershipHandover",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "completeOwnershipHandover",
+        "inputs": [
+          {
+            "name": "pendingOwner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "contractNameAndVersion",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "stateMutability": "pure"
+      },
+      {
+        "type": "function",
+        "name": "contractURI",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "explicitOwnershipOf",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "ownership",
+            "type": "tuple",
+            "internalType": "struct IERC721A.TokenOwnership",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "startTimestamp",
+                "type": "uint64",
+                "internalType": "uint64"
+              },
+              {
+                "name": "burned",
+                "type": "bool",
+                "internalType": "bool"
+              },
+              {
+                "name": "extraData",
+                "type": "uint24",
+                "internalType": "uint24"
+              }
+            ]
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "explicitOwnershipsOf",
+        "inputs": [
+          {
+            "name": "tokenIds",
+            "type": "uint256[]",
+            "internalType": "uint256[]"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "tuple[]",
+            "internalType": "struct IERC721A.TokenOwnership[]",
+            "components": [
+              {
+                "name": "addr",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "startTimestamp",
+                "type": "uint64",
+                "internalType": "uint64"
+              },
+              {
+                "name": "burned",
+                "type": "bool",
+                "internalType": "bool"
+              },
+              {
+                "name": "extraData",
+                "type": "uint24",
+                "internalType": "uint24"
+              }
+            ]
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getActiveStageFromTimestamp",
+        "inputs": [
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getApproved",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getConfig",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "tuple",
+            "internalType": "struct SetupConfig",
+            "components": [
+              {
+                "name": "maxSupply",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "walletLimit",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "baseURI",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "contractURI",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "stages",
+                "type": "tuple[]",
+                "internalType": "struct MintStageInfo[]",
+                "components": [
+                  {
+                    "name": "price",
+                    "type": "uint80",
+                    "internalType": "uint80"
+                  },
+                  {
+                    "name": "mintFee",
+                    "type": "uint80",
+                    "internalType": "uint80"
+                  },
+                  {
+                    "name": "walletLimit",
+                    "type": "uint32",
+                    "internalType": "uint32"
+                  },
+                  {
+                    "name": "merkleRoot",
+                    "type": "bytes32",
+                    "internalType": "bytes32"
+                  },
+                  {
+                    "name": "maxStageSupply",
+                    "type": "uint24",
+                    "internalType": "uint24"
+                  },
+                  {
+                    "name": "startTimeUnixSeconds",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  },
+                  {
+                    "name": "endTimeUnixSeconds",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ]
+              },
+              {
+                "name": "payoutRecipient",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "royaltyRecipient",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "royaltyBps",
+                "type": "uint96",
+                "internalType": "uint96"
+              }
+            ]
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getCosignDigest",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "qty",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "waiveMintFee",
+            "type": "bool",
+            "internalType": "bool"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "cosignNonce",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getCosignNonce",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getCosigner",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getGlobalWalletLimit",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getMaxMintableSupply",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getMintCurrency",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getMintable",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getNumberStages",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getStageInfo",
+        "inputs": [
+          {
+            "name": "index",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "tuple",
+            "internalType": "struct MintStageInfo",
+            "components": [
+              {
+                "name": "price",
+                "type": "uint80",
+                "internalType": "uint80"
+              },
+              {
+                "name": "mintFee",
+                "type": "uint80",
+                "internalType": "uint80"
+              },
+              {
+                "name": "walletLimit",
+                "type": "uint32",
+                "internalType": "uint32"
+              },
+              {
+                "name": "merkleRoot",
+                "type": "bytes32",
+                "internalType": "bytes32"
+              },
+              {
+                "name": "maxStageSupply",
+                "type": "uint24",
+                "internalType": "uint24"
+              },
+              {
+                "name": "startTimeUnixSeconds",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "endTimeUnixSeconds",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          },
+          {
+            "name": "",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "getTimestampExpirySeconds",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "initialize",
+        "inputs": [
+          {
+            "name": "name",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "symbol",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "initialOwner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "isApprovedForAll",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "operator",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "isAuthorizedMinter",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "isSetupLocked",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "isTransferable",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "mint",
+        "inputs": [
+          {
+            "name": "qty",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "limit",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "proof",
+            "type": "bytes32[]",
+            "internalType": "bytes32[]"
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "signature",
+            "type": "bytes",
+            "internalType": "bytes"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "name",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "owner",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "result",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "ownerMint",
+        "inputs": [
+          {
+            "name": "qty",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "ownerOf",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "ownershipHandoverExpiresAt",
+        "inputs": [
+          {
+            "name": "pendingOwner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "result",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "removeAuthorizedMinter",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "renounceOwnership",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "requestOwnershipHandover",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "royaltyInfo",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "salePrice",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "receiver",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "royaltyAmount",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "safeTransferFrom",
+        "inputs": [
+          {
+            "name": "from",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "safeTransferFrom",
+        "inputs": [
+          {
+            "name": "from",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "_data",
+            "type": "bytes",
+            "internalType": "bytes"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "setApprovalForAll",
+        "inputs": [
+          {
+            "name": "operator",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "approved",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setBaseURI",
+        "inputs": [
+          {
+            "name": "baseURI",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setContractURI",
+        "inputs": [
+          {
+            "name": "uri",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setCosigner",
+        "inputs": [
+          {
+            "name": "cosigner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setDefaultRoyalty",
+        "inputs": [
+          {
+            "name": "receiver",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "feeNumerator",
+            "type": "uint96",
+            "internalType": "uint96"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setGlobalWalletLimit",
+        "inputs": [
+          {
+            "name": "globalWalletLimit",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setMaxMintableSupply",
+        "inputs": [
+          {
+            "name": "maxMintableSupply",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setMintable",
+        "inputs": [
+          {
+            "name": "mintable",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setStages",
+        "inputs": [
+          {
+            "name": "newStages",
+            "type": "tuple[]",
+            "internalType": "struct MintStageInfo[]",
+            "components": [
+              {
+                "name": "price",
+                "type": "uint80",
+                "internalType": "uint80"
+              },
+              {
+                "name": "mintFee",
+                "type": "uint80",
+                "internalType": "uint80"
+              },
+              {
+                "name": "walletLimit",
+                "type": "uint32",
+                "internalType": "uint32"
+              },
+              {
+                "name": "merkleRoot",
+                "type": "bytes32",
+                "internalType": "bytes32"
+              },
+              {
+                "name": "maxStageSupply",
+                "type": "uint24",
+                "internalType": "uint24"
+              },
+              {
+                "name": "startTimeUnixSeconds",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "endTimeUnixSeconds",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setTimestampExpirySeconds",
+        "inputs": [
+          {
+            "name": "timestampExpirySeconds",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setTokenURISuffix",
+        "inputs": [
+          {
+            "name": "suffix",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setTransferable",
+        "inputs": [
+          {
+            "name": "transferable",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "setup",
+        "inputs": [
+          {
+            "name": "baseURI",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "tokenURISuffix",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "maxMintableSupply",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "globalWalletLimit",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "mintCurrency",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "fundReceiver",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "initialStages",
+            "type": "tuple[]",
+            "internalType": "struct MintStageInfo[]",
+            "components": [
+              {
+                "name": "price",
+                "type": "uint80",
+                "internalType": "uint80"
+              },
+              {
+                "name": "mintFee",
+                "type": "uint80",
+                "internalType": "uint80"
+              },
+              {
+                "name": "walletLimit",
+                "type": "uint32",
+                "internalType": "uint32"
+              },
+              {
+                "name": "merkleRoot",
+                "type": "bytes32",
+                "internalType": "bytes32"
+              },
+              {
+                "name": "maxStageSupply",
+                "type": "uint24",
+                "internalType": "uint24"
+              },
+              {
+                "name": "startTimeUnixSeconds",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "endTimeUnixSeconds",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          },
+          {
+            "name": "royaltyReceiver",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "royaltyFeeNumerator",
+            "type": "uint96",
+            "internalType": "uint96"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "supportsInterface",
+        "inputs": [
+          {
+            "name": "interfaceId",
+            "type": "bytes4",
+            "internalType": "bytes4"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "symbol",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "tokenURI",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "tokensOfOwner",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256[]",
+            "internalType": "uint256[]"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "tokensOfOwnerIn",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "start",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "stop",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256[]",
+            "internalType": "uint256[]"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "totalMintedByAddress",
+        "inputs": [
+          {
+            "name": "a",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "totalSupply",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "result",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "transferFrom",
+        "inputs": [
+          {
+            "name": "from",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "transferOwnership",
+        "inputs": [
+          {
+            "name": "newOwner",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+      },
+      {
+        "type": "function",
+        "name": "withdraw",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "withdrawERC20",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "event",
+        "name": "Approval",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "approved",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "indexed": true,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "ApprovalForAll",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "operator",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "approved",
+            "type": "bool",
+            "indexed": false,
+            "internalType": "bool"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "AuthorizedMinterAdded",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "AuthorizedMinterRemoved",
+        "inputs": [
+          {
+            "name": "minter",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "ConsecutiveTransfer",
+        "inputs": [
+          {
+            "name": "fromTokenId",
+            "type": "uint256",
+            "indexed": true,
+            "internalType": "uint256"
+          },
+          {
+            "name": "toTokenId",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          },
+          {
+            "name": "from",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "ContractURIUpdated",
+        "inputs": [],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "DefaultRoyaltySet",
+        "inputs": [
+          {
+            "name": "receiver",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "feeNumerator",
+            "type": "uint96",
+            "indexed": false,
+            "internalType": "uint96"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "Initialized",
+        "inputs": [
+          {
+            "name": "version",
+            "type": "uint64",
+            "indexed": false,
+            "internalType": "uint64"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "OwnershipHandoverCanceled",
+        "inputs": [
+          {
+            "name": "pendingOwner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "OwnershipHandoverRequested",
+        "inputs": [
+          {
+            "name": "pendingOwner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "OwnershipTransferred",
+        "inputs": [
+          {
+            "name": "oldOwner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "newOwner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetActiveStage",
+        "inputs": [
+          {
+            "name": "activeStage",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetBaseURI",
+        "inputs": [
+          {
+            "name": "baseURI",
+            "type": "string",
+            "indexed": false,
+            "internalType": "string"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetContractURI",
+        "inputs": [
+          {
+            "name": "uri",
+            "type": "string",
+            "indexed": false,
+            "internalType": "string"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetCosigner",
+        "inputs": [
+          {
+            "name": "cosigner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetDefaultRoyalty",
+        "inputs": [
+          {
+            "name": "receiver",
+            "type": "address",
+            "indexed": false,
+            "internalType": "address"
+          },
+          {
+            "name": "feeNumerator",
+            "type": "uint96",
+            "indexed": false,
+            "internalType": "uint96"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetGlobalWalletLimit",
+        "inputs": [
+          {
+            "name": "globalWalletLimit",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetMaxMintableSupply",
+        "inputs": [
+          {
+            "name": "maxMintableSupply",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetMintCurrency",
+        "inputs": [
+          {
+            "name": "mintCurrency",
+            "type": "address",
+            "indexed": false,
+            "internalType": "address"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetMintable",
+        "inputs": [
+          {
+            "name": "mintable",
+            "type": "bool",
+            "indexed": false,
+            "internalType": "bool"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetTimestampExpirySeconds",
+        "inputs": [
+          {
+            "name": "timestampExpirySeconds",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetTokenURISuffix",
+        "inputs": [
+          {
+            "name": "suffix",
+            "type": "string",
+            "indexed": false,
+            "internalType": "string"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "SetTransferable",
+        "inputs": [
+          {
+            "name": "transferable",
+            "type": "bool",
+            "indexed": false,
+            "internalType": "bool"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "TokenRoyaltySet",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "indexed": true,
+            "internalType": "uint256"
+          },
+          {
+            "name": "receiver",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "feeNumerator",
+            "type": "uint96",
+            "indexed": false,
+            "internalType": "uint96"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "Transfer",
+        "inputs": [
+          {
+            "name": "from",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "indexed": true,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "UpdateStage",
+        "inputs": [
+          {
+            "name": "stage",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          },
+          {
+            "name": "price",
+            "type": "uint80",
+            "indexed": false,
+            "internalType": "uint80"
+          },
+          {
+            "name": "mintFee",
+            "type": "uint80",
+            "indexed": false,
+            "internalType": "uint80"
+          },
+          {
+            "name": "walletLimit",
+            "type": "uint32",
+            "indexed": false,
+            "internalType": "uint32"
+          },
+          {
+            "name": "merkleRoot",
+            "type": "bytes32",
+            "indexed": false,
+            "internalType": "bytes32"
+          },
+          {
+            "name": "maxStageSupply",
+            "type": "uint24",
+            "indexed": false,
+            "internalType": "uint24"
+          },
+          {
+            "name": "startTimeUnixSeconds",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          },
+          {
+            "name": "endTimeUnixSeconds",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "Withdraw",
+        "inputs": [
+          {
+            "name": "value",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "WithdrawERC20",
+        "inputs": [
+          {
+            "name": "mintCurrency",
+            "type": "address",
+            "indexed": false,
+            "internalType": "address"
+          },
+          {
+            "name": "value",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "error",
+        "name": "AlreadyInitialized",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "ApprovalCallerNotOwnerNorApproved",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "ApprovalQueryForNonexistentToken",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "BalanceQueryForZeroAddress",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "CannotIncreaseMaxMintableSupply",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "ContractAlreadySetup",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "CosignerNotSet",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "GlobalWalletLimitOverflow",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InitialOwnerCannotBeZero",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InsufficientBalance",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InsufficientStageTimeGap",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidCosignSignature",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidInitialization",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidProof",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidQueryRange",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidStage",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidStageArgsLength",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "InvalidStartAndEndTimestamp",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "MintERC2309QuantityExceedsLimit",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "MintToZeroAddress",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "MintZeroQuantity",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "Mintable",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NewOwnerIsZeroAddress",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NewSupplyLessThanTotalSupply",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NoHandoverRequest",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NoSupplyLeft",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotAuthorized",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotCompatibleWithSpotMints",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotEnoughValue",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotInitializing",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotMintable",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotSupported",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "NotTransferable",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "OwnerQueryForNonexistentToken",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "OwnershipNotInitializedForExtraData",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "Reentrancy",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "RoyaltyOverflow",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "RoyaltyReceiverIsZeroAddress",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "SequentialMintExceedsLimit",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "SequentialUpToTooSmall",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "SpotMintTokenIdTooSmall",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "StageSupplyExceeded",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TimestampExpired",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TokenAlreadyExists",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TransferCallerNotOwnerNorApproved",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TransferFailed",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TransferFromIncorrectOwner",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TransferToNonERC721ReceiverImplementer",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TransferToZeroAddress",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "TransferableAlreadySet",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "URIQueryForNonexistentToken",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "Unauthorized",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "WalletGlobalLimitExceeded",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "WalletStageLimitExceeded",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "WithdrawFailed",
+        "inputs": []
+      },
+      {
+        "type": "error",
+        "name": "WrongMintCurrency",
+        "inputs": []
+      }
+    ]
   }
 }
