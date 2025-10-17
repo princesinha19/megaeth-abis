@@ -67,8 +67,15 @@
     "name": "UniswapInterfaceMulticall",
     "file": "contracts/uniswap-multicall.json"
   },
+  
   "0x1234567890abcdef1234567890abcdef12345678": {
     "name": "MegaEthDemoContract",
     "file": "contracts/demo-contract.json"
-  }
+  },
+  
+  "0xaD4aD024f65977Cd78636970260b63c5A18d2106": {
+    "name": "TestWallet",
+    "file": "contracts/TestWallet.json"
+  },
+
 }
