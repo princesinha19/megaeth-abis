@@ -70,5 +70,13 @@
   "0x1234567890abcdef1234567890abcdef12345678": {
     "name": "MegaEthDemoContract",
     "file": "contracts/demo-contract.json"
+  },
+  "0x5787f543a53E14E3425e30c0b7Fe0c7Ac356F855": {
+    "name": "DivingContract",
+    "file": "contracts/diving-contract.json"
+  },
+  "0x4E0e853dB716d3f0D249189C629747623284a502": {
+    "name": "DivingProxy",
+    "file": "contracts/diving-proxy.json"
   }
 }
